@@ -118,7 +118,7 @@
 
     /* 상단 버튼 행 */
     .hero-tools {
-      display: grid; grid-template-columns: 1fr 1fr;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px; max-width: 900px; margin: 0 auto 48px;
       position: relative; z-index: 1;
     }
@@ -491,6 +491,14 @@
         </div>
         <span class="tb-arrow">→</span>
       </div>
+      <div class="tool-btn" onclick="openCalendar()">
+        <div class="tb-icon">📅</div>
+        <div class="tb-text">
+          <span class="tb-title">구글 캘린더</span>
+          <span class="tb-sub">팀 일정 · 업무 일정 바로가기</span>
+        </div>
+        <span class="tb-arrow">↗</span>
+      </div>
     </div>
 
     <!-- 하단: 텍스트(좌) + 캐릭터(우) -->
@@ -498,7 +506,7 @@
       <div class="hero-text">
         <div class="hero-eyebrow">🏢 디지털플랫폼팀 채널기획 Cell</div>
         <h1>업무 효율을 높이는<br><em>업무 효율화 도구 모음</em></h1>
-        <p>화면 영향도 분석부터 고객 문의 에러 관리까지<br>한 곳에서 빠르게 처리하세요</p>
+        <p>화면 영향도 분석, 고객 문의 에러 관리, 팀 일정 조율까지<br>한 곳에서 빠르게 처리하세요</p>
       </div>
 
       <!-- EZ곰 캐릭터 SVG -->
@@ -588,8 +596,8 @@
       <h2>상품명 또는 키워드로 검색</h2>
       <div class="tag-area" id="tagArea">
         <span class="tag" onclick="tagClick(this,'N pay')">N pay 이벤트 만료</span>
-        <span class="tag" onclick="tagClick(this,'쏘 Walk')">쏘 Walk 제휴 종료</span>
-        <span class="tag" onclick="tagClick(this,'쏘 Drive')">쏘 Drive 제휴 종료</span>
+        <span class="tag" onclick="tagClick(this,'싘 Walk')">싘 Walk 제휴 종료</span>
+        <span class="tag" onclick="tagClick(this,'싘 Drive')">싘 Drive 제휴 종료</span>
         <span class="tag" onclick="tagClick(this,'미니생활보험')">미니생활보험 변경</span>
         <span class="tag" onclick="tagClick(this,'실손')">실손보험 변경</span>
         <span class="tag" onclick="tagClick(this,'금융안심')">금융안심보험 변경</span>
@@ -738,7 +746,7 @@
     <!-- 설정 -->
     <div class="err-panel" id="tab-settings">
       <div class="settings-card">
-        <h3>🔗 Notion 연동 설정</h3>
+        <h3>🔗 Notion s��동 설정</h3>
         <div class="set-row">
           <label>Notion Integration Token</label>
           <input type="password" id="set-notionToken" placeholder="secret_..." autocomplete="off">
@@ -757,6 +765,15 @@
         </div>
         <button class="set-save-btn" onclick="saveSettings()">저장</button>
       </div>
+      <div class="settings-card">
+        <h3>📅 구글 캘린더 설정</h3>
+        <div class="set-row">
+          <label>캘린더 URL</label>
+          <input type="url" id="set-calendarUrl" placeholder="https://calendar.google.com" autocomplete="off">
+        </div>
+        <p style="font-size:12px;color:var(--gray-text);margin-top:6px;">팀 공유 캘린더 URL 또는 기본 구글 캘린더 URL을 입력하세요. 비워두면 calendar.google.com으로 이동합니다.</p>
+        <button class="set-save-btn" onclick="saveSettings()">저장</button>
+      </div>
     </div>
   </div>
 </div>
@@ -765,6 +782,11 @@
 
 <script>
 // ═══ NAVIGATION (페이드 트랜지션) ═══
+function openCalendar() {
+  const calUrl = localStorage.getItem('calendarUrl') || 'https://calendar.google.com';
+  window.open(calUrl, '_blank');
+}
+
 function showView(view) {
   const landing = document.getElementById('landing');
   const target  = document.getElementById('view-' + view);
@@ -951,18 +973,27 @@ function loadSettings() {
     const nt=document.getElementById('set-notionToken');
     const nd=document.getElementById('set-notionDbId');
     const ck=document.getElementById('set-claudeKey');
+    const cu=document.getElementById('set-calendarUrl');
     if(nt&&settings.notionToken) nt.value=settings.notionToken;
     if(nd&&settings.notionDbId) nd.value=settings.notionDbId;
     if(ck&&settings.claudeKey) ck.value=settings.claudeKey;
+    if(cu&&settings.calendarUrl) cu.value=settings.calendarUrl;
+    // calendarUrl은 독립적으로도 저장
+    const saved=localStorage.getItem('calendarUrl');
+    if(cu&&saved) cu.value=saved;
   } catch(e){}
 }
 function saveSettings() {
+  const calUrl = (document.getElementById('set-calendarUrl')||{value:''}).value.trim();
   settings = {
     notionToken: document.getElementById('set-notionToken').value.trim(),
     notionDbId:  document.getElementById('set-notionDbId').value.trim()||'69d6f14353fe46a9a01ce43c7379ccb3',
     claudeKey:   document.getElementById('set-claudeKey').value.trim(),
+    calendarUrl: calUrl,
   };
   localStorage.setItem('ez-settings', JSON.stringify(settings));
+  if(calUrl) localStorage.setItem('calendarUrl', calUrl);
+  else localStorage.removeItem('calendarUrl');
   showToast('설정 저장 완료'); checkNotionStatus();
 }
 function initErrorView() { loadSettings(); checkNotionStatus(); }
@@ -971,7 +1002,7 @@ async function checkNotionStatus() {
   dot.className='status-dot'; txt.textContent='Notion 연결 상태 확인 중...';
   if(!settings.notionToken){ dot.className='status-dot err'; txt.textContent='설정 탭에서 Notion Integration Token을 입력하세요'; return; }
   try {
-    const r=await fetch(`https://api.notion.com/v1/databases/${settings.notionDbId||'69d6f14353fe46a9a01ce43c7379ccb3'}`,
+    const p=await fetch(`https://api.notion.com/v1/databases/${settings.notionDbId||'69d6f14353fe46a9a01ce43c7379ccb3'}`,
       {headers:{'Authorization':`Bearer ${settings.notionToken}`,'Notion-Version':'2022-06-28'}});
     dot.className=r.ok?'status-dot ok':'status-dot err';
     txt.textContent=r.ok?'Notion 연결됨 — 반복결함 관리 DB':`연결 실패 (${r.status}) — 설정을 확인하세요`;
