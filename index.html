@@ -40,7 +40,6 @@
       color: var(--text);
       -webkit-font-smoothing: antialiased;
     }
-
     /* ══════════ HEADER ══════════ */
     header {
       background: var(--white);
@@ -76,7 +75,6 @@
     }
     .back-btn:hover { background: var(--blue-light); }
     .back-btn.show { display: flex; }
-
     /* ══════════ PAGE TRANSITIONS ══════════ */
     #landing, #view-checker, #view-errors {
       transition: opacity .28s ease, transform .28s ease;
@@ -91,10 +89,8 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     .page-enter { animation: pageEnter .32s ease forwards; }
-
     /* ══════════ LANDING ══════════ */
     #landing { display: block; }
-
     .hero {
       background: linear-gradient(160deg, #dbeafe 0%, #eff5ff 55%, #f8fbff 100%);
       padding: 48px 48px 56px;
@@ -115,8 +111,6 @@
       background: radial-gradient(circle, rgba(59,130,246,.08) 0%, transparent 70%);
       pointer-events: none;
     }
-
-    /* 상단 버튼 행 */
     .hero-tools {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px; max-width: 900px; margin: 0 auto 48px;
@@ -148,8 +142,6 @@
     .tb-sub   { display: block; font-size: 12px; color: var(--gray-text); }
     .tb-arrow { font-size: 18px; color: var(--blue); font-weight: 700; flex-shrink: 0; transition: transform .2s; }
     .tool-btn:hover .tb-arrow { transform: translateX(4px); }
-
-    /* 하단 본문: 텍스트 + 캐릭터 */
     .hero-body {
       display: flex; align-items: center; justify-content: space-between;
       max-width: 900px; margin: 0 auto;
@@ -180,13 +172,10 @@
       0%, 100% { transform: translateY(0); }
       50%       { transform: translateY(-10px); }
     }
-
     /* ══════════ VIEWS ══════════ */
     #view-checker, #view-errors { display: none; }
-
     /* ══════════ CHECKER ══════════ */
     .container { max-width: 1060px; margin: 32px auto; padding: 0 24px; }
-
     .search-card {
       background: var(--white); border-radius: var(--radius-md);
       padding: 24px 28px; margin-bottom: 20px; box-shadow: var(--shadow-sm);
@@ -216,7 +205,6 @@
       transition: background .15s;
     }
     .search-row button:hover { background: var(--blue-mid); }
-
     .filter-bar { display: flex; gap: 6px; margin-bottom: 18px; }
     .filter-btn {
       padding: 7px 18px; border-radius: var(--radius-pill);
@@ -226,16 +214,13 @@
     }
     .filter-btn:hover { border-color: var(--blue); color: var(--blue); }
     .filter-btn.active { background: var(--blue-pale); border-color: var(--blue); color: var(--blue); font-weight: 700; }
-
     .legend { display: flex; gap: 18px; margin-bottom: 18px; font-size: 12px; color: var(--gray-text); }
     .legend-item { display: flex; align-items: center; gap: 6px; }
     .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
     .legend-dot.high { background: var(--red); }
     .legend-dot.medium { background: var(--orange); }
-
     .result-count { font-size: 13px; color: var(--gray-text); margin-bottom: 14px; }
     .result-count strong { color: var(--blue); }
-
     .result-card {
       background: var(--white); border-radius: var(--radius-md);
       padding: 18px 22px; margin-bottom: 12px;
@@ -247,14 +232,12 @@
     .result-card.high   { border-left-color: var(--red); }
     .result-card.medium { border-left-color: var(--orange); }
     .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
-
     .badge { padding: 3px 10px; border-radius: var(--radius-pill); font-size: 11px; font-weight: 700; }
     .badge-rep  { background: var(--blue-pale); color: var(--blue); }
     .badge-dir  { background: #fce8e6; color: #c62828; }
     .badge-high   { background: #ffebee; color: var(--red); }
     .badge-medium { background: #fff3e0; color: var(--orange); }
     .badge-low    { background: #e8f5e9; color: #388e3c; }
-
     .screen-id { font-size: 11px; color: var(--gray-text); font-family: 'SF Mono', monospace; }
     .screen-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .card-body { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
@@ -266,11 +249,8 @@
     .product-chip.matched { background: #fffbeb; border-color: #fcd34d; color: #92400e; font-weight: 600; }
     .locations { font-size: 12px; color: var(--gray-text); }
     .empty { text-align: center; padding: 80px 0; color: var(--gray-3); font-size: 15px; }
-
     /* ══════════ ERROR MANAGEMENT ══════════ */
     .err-wrap { max-width: 860px; margin: 0 auto; padding: 28px 24px; }
-
-    /* Status */
     .notion-status {
       display: flex; align-items: center; gap: 10px;
       background: var(--white); border-radius: var(--radius-md);
@@ -280,8 +260,6 @@
     .status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--yellow); flex-shrink: 0; transition: background .3s; }
     .status-dot.ok  { background: var(--green); }
     .status-dot.err { background: var(--red); }
-
-    /* Pill Tabs */
     .err-tabs {
       display: inline-flex; gap: 4px;
       background: var(--white); padding: 5px;
@@ -296,11 +274,8 @@
     }
     .err-tab.active { background: var(--blue); color: #fff; box-shadow: 0 2px 8px rgba(0,48,135,.25); }
     .err-tab:hover:not(.active) { background: var(--blue-pale); color: var(--blue); }
-
     .err-panel { display: none; }
     .err-panel.active { display: block; }
-
-    /* Upload */
     .upload-zone {
       border: 2px dashed var(--blue-light); border-radius: var(--radius-lg);
       padding: 60px 20px; text-align: center; cursor: pointer;
@@ -314,13 +289,9 @@
     .upload-zone h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
     .upload-zone p { font-size: 13px; color: var(--gray-text); }
     .upload-zone input[type=file] { display: none; }
-
-    /* Preview */
     .img-preview { display: none; text-align: center; margin-bottom: 16px; }
     .img-preview img { max-height: 260px; max-width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
     .img-preview .rm-btn { display: block; margin: 10px auto 0; background: none; border: none; color: var(--red); cursor: pointer; font-size: 13px; font-family: inherit; }
-
-    /* Analyze button */
     .analyze-btn {
       width: 100%; padding: 15px;
       background: var(--blue); color: #fff;
@@ -331,8 +302,6 @@
     }
     .analyze-btn:hover:not(:disabled) { background: var(--blue-mid); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,48,135,.3); }
     .analyze-btn:disabled { background: var(--gray-3); cursor: not-allowed; box-shadow: none; transform: none; }
-
-    /* Analysis result */
     .analysis-result {
       display: none;
       background: var(--white); border-radius: var(--radius-md);
@@ -356,7 +325,6 @@
       font-family: inherit; font-size: 13px; color: var(--text);
       outline: none; resize: vertical;
     }
-
     .notion-save-btn {
       width: 100%; padding: 14px;
       background: #111; color: #fff;
@@ -367,8 +335,6 @@
     }
     .notion-save-btn:hover:not(:disabled) { background: #222; transform: translateY(-1px); }
     .notion-save-btn:disabled { background: var(--gray-3); cursor: not-allowed; transform: none; }
-
-    /* Error list */
     .err-item {
       background: var(--white); border-radius: var(--radius-md);
       padding: 16px 20px; margin-bottom: 10px;
@@ -390,8 +356,6 @@
     .st-badge { padding: 3px 10px; border-radius: var(--radius-pill); font-size: 11px; font-weight: 600; background: var(--blue-pale); color: var(--blue); }
     .err-title-txt { font-size: 15px; font-weight: 700; color: var(--text); }
     .err-meta-txt { font-size: 12px; color: var(--gray-text); margin-top: 4px; }
-
-    /* Schema */
     .schema-wrap { overflow: hidden; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
     .schema-tbl { width: 100%; border-collapse: collapse; background: var(--white); }
     .schema-tbl th { background: var(--blue); color: #fff; padding: 12px 16px; font-size: 12px; font-weight: 700; text-align: left; letter-spacing: .3px; }
@@ -400,8 +364,6 @@
     .schema-tbl tr:hover td { background: var(--blue-pale); }
     .schema-info { margin-top: 12px; font-size: 12px; color: var(--gray-text); }
     .schema-info code { background: var(--gray-2); padding: 2px 7px; border-radius: 5px; font-size: 11px; }
-
-    /* Settings */
     .settings-card {
       background: var(--white); border-radius: var(--radius-md);
       padding: 24px; box-shadow: var(--shadow-sm); margin-bottom: 16px;
@@ -425,8 +387,12 @@
       transition: background .15s;
     }
     .set-save-btn:hover { background: var(--blue-mid); }
-
-    /* Toast */
+    .info-box {
+      background: var(--blue-pale); border: 1px solid var(--blue-light);
+      border-radius: var(--radius-sm); padding: 12px 16px;
+      font-size: 12px; color: var(--blue); margin-bottom: 16px;
+      display: flex; align-items: flex-start; gap: 8px;
+    }
     .toast {
       position: fixed; bottom: 28px; right: 28px;
       background: var(--text); color: #fff;
@@ -437,21 +403,19 @@
       box-shadow: 0 4px 20px rgba(0,0,0,.2);
     }
     .toast.show { opacity: 1; transform: translateY(0); }
-
     @media (max-width: 640px) {
       .tool-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 28px; }
       .field-row { grid-template-columns: 1fr; }
       .field-lbl { padding-top: 0; }
       header { padding: 0 16px; }
-  /* 모바일 반응형 */
-  .hero { padding: 24px 16px 32px; }
-  .hero-tools { grid-template-columns: 1fr; gap: 12px; margin-bottom: 28px; }
-  .hero-body { flex-direction: column; align-items: flex-start; }
-  .hero-char { width: 140px; margin: 16px auto 0; }
-  .tool-btn { padding: 14px 16px; }
-  .tb-icon { width: 38px; height: 38px; font-size: 18px; }
-  .container { padding: 0 16px; }
+      .hero { padding: 24px 16px 32px; }
+      .hero-tools { grid-template-columns: 1fr; gap: 12px; margin-bottom: 28px; }
+      .hero-body { flex-direction: column; align-items: flex-start; }
+      .hero-char { width: 140px; margin: 16px auto 0; }
+      .tool-btn { padding: 14px 16px; }
+      .tb-icon { width: 38px; height: 38px; font-size: 18px; }
+      .container { padding: 0 16px; }
     }
   </style>
   <style>
@@ -495,7 +459,6 @@
   </style>
 </head>
 <body>
-
 <!-- ══ LOGIN OVERLAY ══ -->
 <div id="login-overlay">
   <div class="login-box">
@@ -514,8 +477,6 @@
     <div class="login-footer">디지털플랫폼팀 채널기획 Cell</div>
   </div>
 </div>
-
-
 <!-- ══ HEADER ══ -->
 <header>
   <div class="logo">
@@ -527,12 +488,9 @@
     ← 홈으로
   </button>
 </header>
-
 <!-- ══ LANDING ══ -->
 <div id="landing">
   <div class="hero">
-
-    <!-- 상단: 도구 선택 버튼 -->
     <div class="hero-tools">
       <div class="tool-btn" onclick="showView('checker')">
         <div class="tb-icon">🔍</div>
@@ -559,16 +517,12 @@
         <span class="tb-arrow">↗</span>
       </div>
     </div>
-
-    <!-- 하단: 텍스트(좌) + 캐릭터(우) -->
     <div class="hero-body">
       <div class="hero-text">
         <div class="hero-eyebrow">🏢 디지털플랫폼팀 채널기획 Cell</div>
         <h1>업무 효율을 높이는<br><em>업무 효율화 도구 모음</em></h1>
         <p>화면 영향도 분석, 고객 문의 에러 관리, 팀 일정 조율까지<br>한 곳에서 빠르게 처리하세요</p>
       </div>
-
-      <!-- EZ곰 캐릭터 SVG -->
       <div class="hero-char">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 370" width="260" height="322">
           <defs>
@@ -580,74 +534,40 @@
               <stop offset="100%" stop-color="#f0f5ff"/>
             </radialGradient>
           </defs>
-
-          <!-- 바닥 그림자 -->
           <ellipse cx="150" cy="358" rx="72" ry="14" fill="#003087" opacity="0.08"/>
-
-          <!-- 몸통 -->
           <ellipse cx="150" cy="272" rx="90" ry="96" fill="url(#fur)" filter="url(#bs)"/>
-
-          <!-- 머리 -->
           <circle cx="150" cy="155" r="90" fill="url(#fur)" filter="url(#bs)"/>
-
-          <!-- 왼쪽 귀 -->
           <circle cx="74" cy="80" r="31" fill="url(#fur)"/>
           <circle cx="74" cy="80" r="18" fill="#dbeafe"/>
-
-          <!-- 오른쪽 귀 -->
           <circle cx="226" cy="80" r="31" fill="url(#fur)"/>
           <circle cx="226" cy="80" r="18" fill="#dbeafe"/>
-
-          <!-- 왼쪽 눈 -->
           <circle cx="118" cy="145" r="14" fill="#111827"/>
           <circle cx="123" cy="139" r="5" fill="white"/>
-
-          <!-- 오른쪽 눈 -->
           <circle cx="182" cy="145" r="14" fill="#111827"/>
           <circle cx="187" cy="139" r="5" fill="white"/>
-
-          <!-- 볼 홍조 -->
           <ellipse cx="94"  cy="168" rx="19" ry="12" fill="#fca5a5" opacity="0.32"/>
           <ellipse cx="206" cy="168" rx="19" ry="12" fill="#fca5a5" opacity="0.32"/>
-
-          <!-- 코 -->
           <ellipse cx="150" cy="172" rx="9" ry="6" fill="#374151"/>
-
-          <!-- 입 -->
           <path d="M 136 182 Q 150 198 164 182" stroke="#374151" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-
-          <!-- 파란 나비넥타이 (신한블루) -->
           <path d="M 92 218 C 88 206 134 210 150 220 C 134 222 88 230 92 218 Z" fill="#003087"/>
           <path d="M 208 218 C 212 206 166 210 150 220 C 166 222 212 230 208 218 Z" fill="#003087"/>
           <circle cx="150" cy="219" r="9" fill="#1a4fa0"/>
           <circle cx="150" cy="219" r="4" fill="#4a7fd4"/>
-
-          <!-- 왼쪽 앞발 -->
           <ellipse cx="62" cy="298" rx="32" ry="22" fill="url(#fur)" filter="url(#bs)" transform="rotate(-18,62,298)"/>
-
-          <!-- 오른쪽 앞발 -->
           <ellipse cx="238" cy="298" rx="32" ry="22" fill="url(#fur)" filter="url(#bs)" transform="rotate(18,238,298)"/>
-
-          <!-- 왼쪽 발 -->
           <ellipse cx="108" cy="354" rx="36" ry="18" fill="url(#fur)"/>
-          <!-- 왼발 발가락 -->
           <circle cx="88"  cy="348" r="7" fill="#e8edf5"/>
           <circle cx="108" cy="344" r="7" fill="#e8edf5"/>
           <circle cx="128" cy="348" r="7" fill="#e8edf5"/>
-
-          <!-- 오른쪽 발 -->
           <ellipse cx="192" cy="354" rx="36" ry="18" fill="url(#fur)"/>
-          <!-- 오른발 발가락 -->
           <circle cx="172" cy="348" r="7" fill="#e8edf5"/>
           <circle cx="192" cy="344" r="7" fill="#e8edf5"/>
           <circle cx="212" cy="348" r="7" fill="#e8edf5"/>
         </svg>
       </div>
     </div>
-
   </div>
 </div>
-
 <!-- ══ VIEW: 영향도 체커 ══ -->
 <div id="view-checker">
   <div class="container">
@@ -680,7 +600,6 @@
     <div id="results"></div>
   </div>
 </div>
-
 <!-- ══ VIEW: 에러 관리 ══ -->
 <div id="view-errors">
   <div class="err-wrap">
@@ -694,7 +613,6 @@
       <button class="err-tab" onclick="switchErrTab('schema',this)">DB 스키마</button>
       <button class="err-tab" onclick="switchErrTab('settings',this)">설정</button>
     </div>
-
     <!-- 메일 등록 -->
     <div class="err-panel active" id="tab-register">
       <div class="upload-zone" id="uploadZone"
@@ -771,12 +689,10 @@
         </button>
       </div>
     </div>
-
     <!-- 에러 목록 -->
     <div class="err-panel" id="tab-list">
       <div id="errListContent"><div class="empty">불러오는 중...</div></div>
     </div>
-
     <!-- DB 스키마 -->
     <div class="err-panel" id="tab-schema">
       <div class="schema-wrap">
@@ -801,28 +717,18 @@
       </div>
       <p class="schema-info">Notion DB ID: <code>69d6f14353fe46a9a01ce43c7379ccb3</code></p>
     </div>
-
     <!-- 설정 -->
     <div class="err-panel" id="tab-settings">
+      <div class="info-box">
+        ℹ️ API 키는 Cloudflare Worker에 안전하게 보관됩니다. 이 페이지에서는 DB ID와 캘린더 URL만 설정합니다.
+      </div>
       <div class="settings-card">
-        <h3>🔗 Notion s��동 설정</h3>
-        <div class="set-row">
-          <label>Notion Integration Token</label>
-          <input type="password" id="set-notionToken" placeholder="secret_..." autocomplete="off">
-        </div>
+        <h3>🔗 Notion DB 설정</h3>
         <div class="set-row">
           <label>Notion DB ID</label>
           <input type="text" id="set-notionDbId" value="69d6f14353fe46a9a01ce43c7379ccb3">
         </div>
         <button class="set-save-btn" onclick="saveSettings()">저장 및 연결 확인</button>
-      </div>
-      <div class="settings-card">
-        <h3>🤖 Claude API 설정 (Vision 분석용)</h3>
-        <div class="set-row">
-          <label>Claude API Key</label>
-          <input type="password" id="set-claudeKey" placeholder="sk-ant-..." autocomplete="off">
-        </div>
-        <button class="set-save-btn" onclick="saveSettings()">저장</button>
       </div>
       <div class="settings-card">
         <h3>📅 구글 캘린더 설정</h3>
@@ -836,33 +742,26 @@
     </div>
   </div>
 </div>
-
 <div class="toast" id="toast"></div>
-
 <script>
-// ═══ NAVIGATION (페이드 트랜지션) ═══
+// ═══ WORKER URL ═══
+const WORKER = 'https://lively-surf-0bfd.ohone4194.workers.dev';
+
+// ═══ NAVIGATION ═══
 function openCalendar() {
   const calUrl = localStorage.getItem('calendarUrl') || 'https://calendar.google.com';
   window.open(calUrl, '_blank');
 }
-
 function showView(view) {
   const landing = document.getElementById('landing');
   const target  = document.getElementById('view-' + view);
-
-  // 1) 랜딩 페이지 퇴장
   landing.classList.add('page-exit');
-
   setTimeout(() => {
     landing.style.display = 'none';
     landing.classList.remove('page-exit');
-
-    // 2) 목표 뷰 등장
     target.style.display = 'block';
     target.classList.add('page-enter');
     setTimeout(() => target.classList.remove('page-enter'), 350);
-
-    // 헤더 업데이트
     document.getElementById('backBtn').classList.add('show');
     if (view === 'checker') {
       document.getElementById('headerBadge').textContent = '화면 영향도 체커';
@@ -872,32 +771,23 @@ function showView(view) {
     }
   }, 250);
 }
-
 function goHome() {
   const activeView = ['view-checker','view-errors']
     .map(id => document.getElementById(id))
     .find(el => el.style.display === 'block');
-
   if (!activeView) return;
-
-  // 1) 현재 뷰 퇴장
   activeView.classList.add('page-exit');
-
   setTimeout(() => {
     activeView.style.display = 'none';
     activeView.classList.remove('page-exit');
-
-    // 2) 랜딩 등장
     const landing = document.getElementById('landing');
     landing.style.display = 'block';
     landing.classList.add('page-enter');
     setTimeout(() => landing.classList.remove('page-enter'), 350);
-
     document.getElementById('backBtn').classList.remove('show');
     document.getElementById('headerBadge').textContent = '업무 효율화 도구';
   }, 250);
 }
-
 // ═══ CHECKER DB ═══
 const DB_INLINE = [
   { screenId:"MAIN0000M01", screenName:"대표 홈 메인", channel:"대표홈페이지", figmaNodeId:"16:421",
@@ -971,7 +861,6 @@ const DB_INLINE = [
     products:["신한SOL금융안심보험"], exposureLocations:["히어로배너","상품명","가입하기버튼"] }
 ];
 const HIGH_SCREENS = new Set(["MAIN0000M01","DIR_HMEHMEHME_M01","DIR_HMEHMEHME_M01_1","DIR_HMEHMEHME_M01_3","DIR_PDRCLICLI_M01"]);
-
 let currentChannel = 'all', currentKeyword = '';
 function tagClick(el, kw) {
   document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
@@ -1023,21 +912,14 @@ function doSearch() {
     </div>`;
   }).join('');
 }
-
 // ═══ ERROR MANAGEMENT ═══
 let imageBase64=null, imageMediaType='image/jpeg', settings={};
 function loadSettings() {
   try {
     settings = JSON.parse(localStorage.getItem('ez-settings')||'{}');
-    const nt=document.getElementById('set-notionToken');
     const nd=document.getElementById('set-notionDbId');
-    const ck=document.getElementById('set-claudeKey');
     const cu=document.getElementById('set-calendarUrl');
-    if(nt&&settings.notionToken) nt.value=settings.notionToken;
     if(nd&&settings.notionDbId) nd.value=settings.notionDbId;
-    if(ck&&settings.claudeKey) ck.value=settings.claudeKey;
-    if(cu&&settings.calendarUrl) cu.value=settings.calendarUrl;
-    // calendarUrl은 독립적으로도 저장
     const saved=localStorage.getItem('calendarUrl');
     if(cu&&saved) cu.value=saved;
   } catch(e){}
@@ -1045,9 +927,7 @@ function loadSettings() {
 function saveSettings() {
   const calUrl = (document.getElementById('set-calendarUrl')||{value:''}).value.trim();
   settings = {
-    notionToken: document.getElementById('set-notionToken').value.trim(),
-    notionDbId:  document.getElementById('set-notionDbId').value.trim()||'69d6f14353fe46a9a01ce43c7379ccb3',
-    claudeKey:   document.getElementById('set-claudeKey').value.trim(),
+    notionDbId: document.getElementById('set-notionDbId').value.trim()||'69d6f14353fe46a9a01ce43c7379ccb3',
     calendarUrl: calUrl,
   };
   localStorage.setItem('ez-settings', JSON.stringify(settings));
@@ -1059,13 +939,12 @@ function initErrorView() { loadSettings(); checkNotionStatus(); }
 async function checkNotionStatus() {
   const dot=document.getElementById('statusDot'), txt=document.getElementById('statusText');
   dot.className='status-dot'; txt.textContent='Notion 연결 상태 확인 중...';
-  if(!settings.notionToken){ dot.className='status-dot err'; txt.textContent='설정 탭에서 Notion Integration Token을 입력하세요'; return; }
   try {
-    const p=await fetch(`https://api.notion.com/v1/databases/${settings.notionDbId||'69d6f14353fe46a9a01ce43c7379ccb3'}`,
-      {headers:{'Authorization':`Bearer ${settings.notionToken}`,'Notion-Version':'2022-06-28'}});
-    dot.className=r.ok?'status-dot ok':'status-dot err';
-    txt.textContent=r.ok?'Notion 연결됨 — 반복결함 관리 DB':`연결 실패 (${r.status}) — 설정을 확인하세요`;
-  } catch(e){ dot.className='status-dot err'; txt.textContent='연결 오류'; }
+    const dbId=settings.notionDbId||'69d6f14353fe46a9a01ce43c7379ccb3';
+    const p=await fetch(`${WORKER}/proxy/notion/databases/${dbId}`);
+    dot.className=p.ok?'status-dot ok':'status-dot err';
+    txt.textContent=p.ok?'Notion 연결됨 — 반복결함 관리 DB':`연결 실패 (${p.status}) — Worker 설정을 확인하세요`;
+  } catch(e){ dot.className='status-dot err'; txt.textContent='연결 오류 — Worker가 응답하지 않습니다'; }
 }
 function switchErrTab(id, btn) {
   document.querySelectorAll('.err-tab').forEach(t=>t.classList.remove('active'));
@@ -1104,15 +983,14 @@ function removeImage(){
 }
 async function analyzeImage(){
   if(!imageBase64) return;
-  if(!settings.claudeKey){ showToast('설정 탭에서 Claude API Key를 먼저 입력하세요'); return; }
   const btn=document.getElementById('analyzeBtn');
   btn.disabled=true; btn.textContent='분석 중...';
   try {
     const prompt=`이 보험사 고객 문의 메일 이미지를 분석해서 아래 JSON만 반환해줘 (한국어):
 {"title":"문의 요약 1~2줄","sysArea":"SYS-01 청약/계약관리 또는 SYS-02 보험료 계산/수납 또는 SYS-99 기타","defectType":"데이터 오류 또는 프로세스 오류 또는 인터페이스 오류 또는 권한/인증 오류 또는 배치/야간 오류 또는 기타","severity":"Critical 또는 High 또는 Medium 또는 Low","custImpact":"다수 민원 발생 또는 개별 민원 또는 불편·문의 수준","sysImpact":"전체/광범위 장애 또는 특정 기능 장애 또는 경미","cause":"추정 원인 2~3문장","workaround":"임시 조치 방안"}`;
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch(`${WORKER}/proxy/claude`,{
       method:'POST',
-      headers:{'x-api-key':settings.claudeKey,'anthropic-version':'2023-06-01','content-type':'application/json','anthropic-dangerous-direct-browser-access':'true'},
+      headers:{'content-type':'application/json'},
       body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1024,messages:[{role:'user',content:[
         {type:'image',source:{type:'base64',media_type:imageMediaType,data:imageBase64}},
         {type:'text',text:prompt}
@@ -1138,17 +1016,16 @@ function setSelVal(id,val){
   for(const o of s.options){ if(o.value===val||o.text===val){s.value=o.value;break;} }
 }
 async function saveToNotion(){
-  const token=settings.notionToken, dbId=settings.notionDbId||'69d6f14353fe46a9a01ce43c7379ccb3';
-  if(!token){ showToast('설정 탭에서 Notion Token을 입력하세요'); return; }
+  const dbId=settings.notionDbId||'69d6f14353fe46a9a01ce43c7379ccb3';
   const title=document.getElementById('f-title').value.trim();
   if(!title){ showToast('문의 요약을 입력하세요'); return; }
   const btn=document.getElementById('saveBtn');
   btn.disabled=true; btn.innerHTML='저장 중...';
   try {
     const today=new Date().toISOString().split('T')[0];
-    const res=await fetch('https://api.notion.com/v1/pages',{
+    const res=await fetch(`${WORKER}/proxy/notion/pages`,{
       method:'POST',
-      headers:{'Authorization':`Bearer ${token}`,'Notion-Version':'2022-06-28','Content-Type':'application/json'},
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify({parent:{database_id:dbId},properties:{
         "문의 요약":{title:[{text:{content:title}}]},
         "시스템 영역":{select:{name:document.getElementById('f-sysArea').value}},
@@ -1169,14 +1046,13 @@ async function saveToNotion(){
   finally { btn.disabled=false; btn.innerHTML='<span>📥</span> Notion DB에 저장'; }
 }
 async function loadErrList(){
-  const token=settings.notionToken, dbId=settings.notionDbId||'69d6f14353fe46a9a01ce43c7379ccb3';
+  const dbId=settings.notionDbId||'69d6f14353fe46a9a01ce43c7379ccb3';
   const box=document.getElementById('errListContent');
-  if(!token){box.innerHTML='<div class="empty">설정 탭에서 Notion Token을 입력하세요</div>';return;}
   box.innerHTML='<div class="empty">불러오는 중...</div>';
   try {
-    const res=await fetch(`https://api.notion.com/v1/databases/${dbId}/query`,{
+    const res=await fetch(`${WORKER}/proxy/notion/databases/${dbId}/query`,{
       method:'POST',
-      headers:{'Authorization':`Bearer ${token}`,'Notion-Version':'2022-06-28','Content-Type':'application/json'},
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify({sorts:[{property:'등록일',direction:'descending'}],page_size:50})
     });
     if(!res.ok) throw new Error(`오류: ${res.status}`);
@@ -1209,7 +1085,6 @@ function showToast(msg){
   setTimeout(()=>t.classList.remove('show'),3000);
 }
 </script>
-
 <script>
 (function() {
   if (sessionStorage.getItem('ez_auth') === 'ok') {
@@ -1221,7 +1096,6 @@ function showToast(msg){
     });
   });
 })();
-
 async function doLogin() {
   var idVal = document.getElementById('login-id').value.trim();
   var pwVal = document.getElementById('login-pw').value;
@@ -1244,6 +1118,5 @@ async function doLogin() {
   }
 }
 </script>
-
 </body>
 </html>
